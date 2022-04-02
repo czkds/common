@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #====================================================
 #!/bin/bash
-# https://github.com/shidahuilang/langlang
+# https://github.com/shidahuilang/openwrt
 # common Module by 大灰狼
 # matrix.target=${Modelfile}
 #====================================================
