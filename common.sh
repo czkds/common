@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #====================================================
 #!/bin/bash
-# https://github.com/shidahuilang/openwrt
+# https://github.com/czkds/openwrt
 # common Module by 大灰狼
 # matrix.target=${Modelfile}
 #====================================================
@@ -216,7 +216,7 @@ src-git helloworld https://github.com/fw876/helloworld
 src-git passwall https://github.com/xiaorouji/openwrt-passwall;packages
 src-git passwall1 https://github.com/xiaorouji/openwrt-passwall;luci
 src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2;main
-src-git dahuilang https://github.com/shidahuilang/openwrt-package.git;${REPO_BRANCH}
+src-git czkds https://github.com/czkds/openwrt-package.git;${REPO_BRANCH}
 " >> $HOME_PATH/feeds.conf.default
 sed -i '/^#/d' "$HOME_PATH/feeds.conf.default"
 sed -i '/^$/d' "$HOME_PATH/feeds.conf.default"
@@ -469,7 +469,7 @@ if [[ `grep -c "CONFIG_PACKAGE_luci-app-unblockneteasemusic=y" ${HOME_PATH}/.con
 fi
 
 if [[ `grep -c "CONFIG_PACKAGE_ntfs-3g=y" ${HOME_PATH}/.config` -eq '1' ]]; then
-  mkdir -p ${HOME_PATH}/files/etc/hotplug.d/block && curl -fsSL  https://raw.githubusercontent.com/shidahuilang/openwrt-package/usb/block/10-mount > ${HOME_PATH}/files/etc/hotplug.d/block/10-mount
+  mkdir -p ${HOME_PATH}/files/etc/hotplug.d/block && curl -fsSL  https://raw.githubusercontent.com/czkds/openwrt-package/usb/block/10-mount > ${HOME_PATH}/files/etc/hotplug.d/block/10-mount
 fi
 
 if [[ `grep -c "CONFIG_TARGET_x86=y" ${HOME_PATH}/.config` -eq '1' ]] || [[ `grep -c "CONFIG_TARGET_rockchip=y" ${HOME_PATH}/.config` -eq '1' ]] || [[ `grep -c "CONFIG_TARGET_bcm27xx=y" ${HOME_PATH}/.config` -eq '1' ]]; then
@@ -591,13 +591,13 @@ rm -rf $HOME_PATH/files/{README,REA*.md}
 function Diy_zzz() {
 echo " 正在执行：在default-settings文件加条执行命令"
 
-curl -fsSL https://raw.githubusercontent.com/shidahuilang/common/main/Custom/FinishIng.sh > $BASE_PATH/etc/FinishIng.sh
+curl -fsSL https://raw.githubusercontent.com/czkds/common/main/Custom/FinishIng.sh > $BASE_PATH/etc/FinishIng.sh
 if [[ $? -ne 0 ]]; then
-  wget -q -O FinishIng.sh -P $BASE_PATH/etc https://raw.githubusercontent.com/shidahuilang/common/main/Custom/FinishIng.sh
+  wget -q -O FinishIng.sh -P $BASE_PATH/etc https://raw.githubusercontent.com/czkds/common/main/Custom/FinishIng.sh
 fi
-curl -fsSL https://raw.githubusercontent.com/shidahuilang/common/main/Custom/webweb.sh > $BASE_PATH/etc/webweb.sh
+curl -fsSL https://raw.githubusercontent.com/czkds/common/main/Custom/webweb.sh > $BASE_PATH/etc/webweb.sh
 if [[ $? -ne 0 ]]; then
-  wget -q -O webweb.sh -P $BASE_PATH/etc https://raw.githubusercontent.com/shidahuilang/common/main/Custom/webweb.sh
+  wget -q -O webweb.sh -P $BASE_PATH/etc https://raw.githubusercontent.com/czkds/common/main/Custom/webweb.sh
 fi
 sed -i '/webweb.sh/d' "$ZZZ_PATH"
 sed -i "/exit 0/i\chmod +x /etc/webweb.sh && source /etc/webweb.sh" "$ZZZ_PATH"
